@@ -1,13 +1,20 @@
 package conta;
 
 import java.util.Scanner;
-
+import conta.model.Conta;
 import conta.util.Cores;
 
 public class Menu {
 
 	public static void main(String[] args) {
-
+		
+		//Teste da Classe conta
+		Conta c1 = new Conta(1,123,1,"Adriana",10000.0f);
+		c1.visualizar();
+		c1.sacar(12000.0f);
+		c1.visualizar();
+		c1.depositar(5000.0f);
+		c1.visualizar();
 		Scanner sc = new Scanner(System.in);
 
 		int opcao;
@@ -88,8 +95,8 @@ public class Menu {
 	}
 	public static void sobre() {
 		System.out.println("\n*******************************************************");
-		System.out.println("Projeto Desenvolvido por: ");
-		System.out.println("Caique Gomes - cttcaiquegomes@gmail.com");
-		System.out.println("https://github.com/Caiqe");
+		System.out.println("Projeto Desenvolvido por: Caique Gomes");
+		System.out.println("Contato - cttcaiquegomes@gmail.com");
+		System.out.println("GitHub  - https://github.com/Caiqe");
 	}
 }
