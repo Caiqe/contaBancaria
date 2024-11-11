@@ -1,5 +1,7 @@
 package conta;
 
+import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import conta.model.ContaCorrente;
 import conta.model.ContaPoupanca;
@@ -53,8 +55,13 @@ public class Menu {
 			System.out.println(" Entre com a opção desejada:                               ");
 			System.out.println("                                                           " + Cores.TEXT_RESET);
 
+			try {
 			opcao = sc.nextInt();
-
+			}catch(InputMismatchException e) {
+				System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "\nDigite valores inteiros!" + Cores.TEXT_RESET);
+				sc.nextLine();
+				opcao=9;
+			}
 			if (opcao == 0) {
 				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND 
 						+ "                                                  ");
@@ -67,38 +74,39 @@ public class Menu {
 			switch (opcao) {
 			case 1:
 				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Criar Conta \n\n");
-
+				keyPress();
 				break;
 			case 2:
 				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Listar todas as Contas \n\n");
-
+				keyPress();
 				break;
 			case 3:
 				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Consultar dados da conta - por número \n\n");
-
+				keyPress();
 				break;
 			case 4:
 				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Atualizar dados da Conta \n\n");
-
+				keyPress();
 				break;
 			case 5:
 				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Apagar a Conta \n\n");
-
+				keyPress();
 				break;
 			case 6:
 				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Saque \n\n");
-
+				keyPress();
 				break;
 			case 7:
 				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Depósito \n\n");
-
+				keyPress();
 				break;
 			case 8:
 				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Transferência entre Contas \n\n");
-
+				keyPress();
 				break;
 			default:
 				System.out.println(Cores.TEXT_RED_BOLD_BRIGHT + "Opção inválida!\n" + Cores.TEXT_RESET);
+				keyPress();
 				break;
 
 			}
@@ -108,12 +116,21 @@ public class Menu {
 	}
 
 	public static void sobre() {
-		System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
+		System.out.println(Cores.TEXT_YELLOW_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
 				+ "   ________________________________________       ");
 		System.out.println("  | Projeto Desenvolvido por: Caique Gomes |      ");
 		System.out.println("  | Contato - cttcaiquegomes@gmail.com     |      ");
 		System.out.println("  | GitHub  - https://github.com/Caiqe     |      ");
 		System.out.println("  |________________________________________|      ");
 		System.out.println("                                                  ");
+	}
+	
+	public static void keyPress() {
+		try {
+			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para continuar...");
+			System.in.read();
+		}catch(IOException e) {
+			System.out.println("Você pressionou uma tecla diferente de enter!");
+		}
 	}
 }
