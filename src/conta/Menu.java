@@ -31,27 +31,7 @@ public class Menu {
 
 		while (true) {
 
-			System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
-					+ " _________________________________________________________ ");
-			System.out.println("|                                                         |");
-			System.out.println("|                  AQUELE BANCO ROXINHO                   |");
-			System.out.println("|                                                         |");
-			System.out.println("|=========================================================|" + Cores.TEXT_RESET);
-			System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
-					+ "|                                                         |");
-			System.out.println("|        [1]  -  Criar Conta                              |");
-			System.out.println("|        [2]  -  Listar todas as Contas                   |");
-			System.out.println("|        [3]  -  Buscar Conta por Número                  |");
-			System.out.println("|        [4]  -  Atualizar Dados da Conta                 |");
-			System.out.println("|        [5]  -  Apagar Conta                             |");
-			System.out.println("|        [6]  -  Sacar                                    |");
-			System.out.println("|        [7]  -  Depositar                                |");
-			System.out.println("|        [8]  -  Transferir valores entre Contas          |");
-			System.out.println("|        [0]  -  Sair                                     |");
-			System.out.println("|                                                         |");
-			System.out.println("|_________________________________________________________|");
-			System.out.println(" Entre com a opção desejada:                               ");
-			System.out.println("                                                           " + Cores.TEXT_RESET);
+			menu();
 
 			try {
 				opcao = sc.nextInt();
@@ -61,9 +41,7 @@ public class Menu {
 				opcao = 9;
 			}
 			if (opcao == 0) {
-				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
-						+ "                                                  ");
-				System.out.println(" AQUELE BANCO ROXINHO - O seu Futuro começa aqui! ");
+
 				sobre();
 				sc.close();
 				System.exit(0);
@@ -71,8 +49,9 @@ public class Menu {
 			}
 			switch (opcao) {
 			case 1:
-				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Criar Conta \n\n");
-				System.out.println("Digite o número da agência: ");
+				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "Criar Conta \n\n"
+						+ Cores.TEXT_RESET);
+				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Digite o número da agência: ");
 				agencia = sc.nextInt();
 				System.out.println("Digite o nome do Titular");
 				sc.skip("\\R?");
@@ -104,14 +83,16 @@ public class Menu {
 				keyPress();
 				break;
 			case 2:
-				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Listar todas as Contas \n\n");
+				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
+						+ "Listar todas as Contas \n\n" + Cores.TEXT_RESET + Cores.TEXT_WHITE_BOLD_BRIGHT);
 				contas.listarTodas();
 				keyPress();
 				break;
 			case 3:
-				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Consultar dados da conta - por número \n\n");
+				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
+						+ "Consultar dados da conta - por número \n\n" + Cores.TEXT_RESET);
 
-				System.out.println("Digite o número da conta: ");
+				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Digite o número da conta: ");
 				numero = sc.nextInt();
 
 				contas.procurarPorNumero(numero);
@@ -119,9 +100,10 @@ public class Menu {
 				keyPress();
 				break;
 			case 4:
-				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Atualizar dados da Conta \n\n");
+				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
+						+ "Atualizar dados da Conta \n\n" + Cores.TEXT_RESET);
 
-				System.out.println("Digite o número da conta: ");
+				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Digite o número da conta: ");
 				numero = sc.nextInt();
 
 				var buscaConta = contas.buscarNaCollection(numero);
@@ -163,9 +145,10 @@ public class Menu {
 				keyPress();
 				break;
 			case 5:
-				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Apagar a Conta \n\n");
+				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "Apagar a Conta \n\n"
+						+ Cores.TEXT_RESET);
 
-				System.out.println("\nDigite o núemro da conta: ");
+				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Digite o núemro da conta: ");
 				numero = sc.nextInt();
 
 				contas.deletar(numero);
@@ -173,9 +156,10 @@ public class Menu {
 				keyPress();
 				break;
 			case 6:
-				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Saque \n\n");
+				System.out.println(
+						Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "Saque \n\n" + Cores.TEXT_RESET);
 
-				System.out.println("Digite o número da Conta: ");
+				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Digite o número da Conta: ");
 				numero = sc.nextInt();
 
 				do {
@@ -188,9 +172,10 @@ public class Menu {
 				keyPress();
 				break;
 			case 7:
-				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Depósito \n\n");
+				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND + "Depósito \n\n"
+						+ Cores.TEXT_RESET);
 
-				System.out.println("Digite o número da conta: ");
+				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Digite o número da conta: ");
 				numero = sc.nextInt();
 
 				do {
@@ -203,9 +188,10 @@ public class Menu {
 				keyPress();
 				break;
 			case 8:
-				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Transferência entre Contas \n\n");
+				System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
+						+ "Transferência entre Contas \n\n" + Cores.TEXT_RESET);
 
-				System.out.println("Digite o número da conta de origem: ");
+				System.out.println(Cores.TEXT_WHITE_BOLD_BRIGHT + "Digite o número da conta de origem: ");
 				numero = sc.nextInt();
 				System.out.println("Digite o número da conta de destino: ");
 				numeroDestino = sc.nextInt();
@@ -231,6 +217,9 @@ public class Menu {
 	}
 
 	public static void sobre() {
+		System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
+				+ "                                                  ");
+		System.out.println(" AQUELE BANCO ROXINHO - O seu Futuro começa aqui! " + Cores.TEXT_RESET);
 		System.out.println(Cores.TEXT_YELLOW_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
 				+ "   ________________________________________       ");
 		System.out.println("  | Projeto Desenvolvido por: Caique Gomes |      ");
@@ -242,10 +231,42 @@ public class Menu {
 
 	public static void keyPress() {
 		try {
-			System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para continuar...");
+			System.out.println(Cores.TEXT_YELLOW + "\n\nPressione Enter para continuar...");
 			System.in.read();
 		} catch (IOException e) {
 			System.out.println("Você pressionou uma tecla diferente de enter!");
 		}
+	}
+
+	public static void menu() {
+		System.out.println(Cores.TEXT_PURPLE_BOLD_BRIGHT + Cores.ANSI_BLACK_BACKGROUND
+				+ " _________________________________________________________ ");
+		System.out.println("|                                                         |");
+		System.out.println("|                  AQUELE BANCO ROXINHO                   |");
+		System.out.println("|                                                         |");
+		System.out.println("|=========================================================|" + Cores.TEXT_RESET);
+		System.out.println(Cores.ANSI_BLACK_BACKGROUND + "|                                                         |");
+		System.out.println("|        " + Cores.TEXT_PURPLE_BOLD_BRIGHT + "[1]  -  " + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "Criar Conta                              |");
+		System.out.println("|        " + Cores.TEXT_PURPLE_BOLD_BRIGHT + "[2]  -  " + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "Listar todas as Contas                   |");
+		System.out.println("|        " + Cores.TEXT_PURPLE_BOLD_BRIGHT + "[3]  -  " + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "Buscar Conta por Número                  |");
+		System.out.println("|        " + Cores.TEXT_PURPLE_BOLD_BRIGHT + "[4]  -  " + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "Atualizar Dados da Conta                 |");
+		System.out.println("|        " + Cores.TEXT_PURPLE_BOLD_BRIGHT + "[5]  -  " + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "Apagar Conta                             |");
+		System.out.println("|        " + Cores.TEXT_PURPLE_BOLD_BRIGHT + "[6]  -  " + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "Sacar                                    |");
+		System.out.println("|        " + Cores.TEXT_PURPLE_BOLD_BRIGHT + "[7]  -  " + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "Depositar                                |");
+		System.out.println("|        " + Cores.TEXT_PURPLE_BOLD_BRIGHT + "[8]  -  " + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "Transferir valores entre Contas          |");
+		System.out.println("|        " + Cores.TEXT_RED_BOLD + "[0]  -  Sair" + Cores.TEXT_WHITE_BOLD_BRIGHT
+				+ "                                     |");
+		System.out.println("|                                                         |");
+		System.out.println("|_________________________________________________________|");
+		System.out.println(" Entre com a opção desejada:                               ");
+		System.out.println("                                                           " + Cores.TEXT_RESET);
 	}
 }
